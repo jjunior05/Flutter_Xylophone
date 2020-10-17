@@ -12,54 +12,32 @@ class XylophoneApp extends StatelessWidget {
       player.play('note$soundNumber.wav');
     }
 
+    Expanded buildKey({Color color, int numberSound}) {
+      return Expanded(
+        child: FlatButton(
+          onPressed: () {
+            playSound(numberSound);
+          },
+          color: color,
+        ),
+      );
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              FlatButton(
-                onPressed: () {
-                  playSound(1);
-                },
-                color: Colors.red,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(2);
-                },
-                color: Colors.orange,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(3);
-                },
-                color: Colors.yellow,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(4);
-                },
-                color: Colors.green,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(5);
-                },
-                color: Colors.teal,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(6);
-                },
-                color: Colors.cyan,
-              ),
-              FlatButton(
-                onPressed: () {
-                  playSound(7);
-                },
-                color: Colors.indigoAccent,
-              ),
+              buildKey(color: Colors.red, numberSound: 1),
+              buildKey(color: Colors.orange, numberSound: 2),
+              buildKey(color: Colors.yellow, numberSound: 3),
+              buildKey(color: Colors.green, numberSound: 4),
+              buildKey(color: Colors.teal, numberSound: 5),
+              buildKey(color: Colors.blue, numberSound: 6),
+              buildKey(color: Colors.purple, numberSound: 7),
             ],
           ),
         ),
